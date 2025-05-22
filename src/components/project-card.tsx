@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Project } from '@/lib/constants';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Package } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
@@ -27,7 +27,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <p className="text-muted-foreground text-base mb-4 flex-grow">{project.description}</p>
         
         <div className="mb-4">
-          <h4 className="text-sm font-medium text-foreground mb-1">Tech Stack:</h4>
+          <h4 className="text-sm font-medium text-foreground mb-1 flex items-center">
+            Tech Stack: <Package className="h-4 w-4 ml-1" />
+          </h4>
           <div className="flex flex-wrap gap-2">
             {project.tools.map((tool) => (
               <Badge key={tool} variant="secondary" className="border border-foreground shadow-[1px_1px_0px_hsl(var(--foreground))] text-xs">
@@ -64,5 +66,3 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     </div>
   );
 }
-
-    
