@@ -2,13 +2,8 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  typescript: { ignoreBuildErrors: true },
+  eslint: { ignoreDuringBuilds: true },
   images: {
     remotePatterns: [
       {
@@ -19,8 +14,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  experimental: {
+    turbo: {},  // empty object disables boolean error if any old config remains
+  },
+  output: undefined,  // explicitly remove any output: 'export'
 };
 
 export default nextConfig;
-
-    
